@@ -1,0 +1,107 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:party.party,franchises:"
+msgid "Franchises"
+msgstr "Franquicias"
+
+msgctxt "field:sale.franchise,address:"
+msgid "Address"
+msgstr "Direcciones"
+
+msgctxt "field:sale.franchise,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sale.franchise,company_party:"
+msgid "Company Party"
+msgstr "Tercero de la empresa"
+
+msgctxt "field:sale.franchise,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:sale.franchise,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:sale.franchise,end_date:"
+msgid "End Date"
+msgstr "Fecha baja"
+
+msgctxt "field:sale.franchise,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:sale.franchise,name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:sale.franchise,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:sale.franchise,start_date:"
+msgid "Start Date"
+msgstr "Fecha alta"
+
+msgctxt "field:sale.franchise,state:"
+msgid "State"
+msgstr "Estado"
+
+msgctxt "field:sale.franchise,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:sale.franchise,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:sale.sale,franchise:"
+msgid "Franchise"
+msgstr "Franquicia"
+
+msgctxt "field:sale.sale,franchise_party:"
+msgid "Franchise Party"
+msgstr "Tercero de la franquicia"
+
+msgctxt "field:stock.shipment.out,franchise_party:"
+msgid "Franchise Party"
+msgstr "Tercero de la franquicia"
+
+msgctxt "field:stock.shipment.out.return,franchise_party:"
+msgid "Franchise Party"
+msgstr "Tercero de la franquicia"
+
+msgctxt "model:ir.action,name:act_franchise"
+msgid "Franchises"
+msgstr "Franquicias"
+
+msgctxt "model:ir.ui.menu,name:menu_sale_franchise"
+msgid "Franchises"
+msgstr "Franquicias"
+
+msgctxt "model:res.group,name:group_franchise_admin"
+msgid "Franchise Administration"
+msgstr "Administración franquicias"
+
+msgctxt "model:sale.franchise,name:"
+msgid "Sale Franchise"
+msgstr "Franquicia Venda"
+
+msgctxt "selection:sale.franchise,state:"
+msgid "Active"
+msgstr "Alta"
+
+msgctxt "selection:sale.franchise,state:"
+msgid "Inactive"
+msgstr "Baja"
+
+msgctxt "view:sale.franchise:"
+msgid "Franchise"
+msgstr "Franquicia"
+
+msgctxt "view:sale.franchise:"
+msgid "Franchises"
+msgstr "Franquicias"

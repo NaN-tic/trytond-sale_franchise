@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
+<tryton>
+    <data>
+
+        <record model="res.group" id="group_franchise_admin">
+            <field name="name">Franchise Administration</field>
+        </record>
+        <record model="res.user-res.group" id="user_admin_group_franchise_admin">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_franchise_admin"/>
+        </record>
+        <record model="res.user-res.group" id="user_trigger_group_franchise_admin">
+            <field name="user" ref="res.user_trigger"/>
+            <field name="group" ref="group_franchise_admin"/>
+        </record>
+        <record model="ir.ui.view" id="franchise_view_form">
+            <field name="model">sale.franchise</field>
+            <field name="type">form</field>
+            <field name="name">franchise_form</field>
+        </record>
+        <record model="ir.ui.view" id="franchise_view_list">
+            <field name="model">sale.franchise</field>
+            <field name="type">tree</field>
+            <field name="name">franchise_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_franchise">
+            <field name="name">Franchises</field>
+            <field name="res_model">sale.franchise</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_franchise_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="franchise_view_list"/>
+            <field name="act_window" ref="act_franchise"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_franchise_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="franchise_view_form"/>
+            <field name="act_window" ref="act_franchise"/>
+        </record>
+        <record model="ir.model.access" id="access_sale_franchise">
+            <field name="model" search="[('model', '=', 'sale.franchise')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_sale_franchise_admin">
+            <field name="model" search="[('model', '=', 'sale.franchise')]"/>
+            <field name="group" ref="group_franchise_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.ui.view" id="party_view_form">
+            <field name="model">party.party</field>
+            <field name="type">form</field>
+            <field name="inherit" ref="party.party_view_form"/>
+            <field name="name">party_form</field>
+        </record>
+        <record model="ir.ui.view" id="sale_view_form">
+            <field name="model">sale.sale</field>
+            <field name="type">form</field>
+            <field name="inherit" ref="sale.sale_view_form"/>
+            <field name="name">sale_form</field>
+        </record>
+
+
+        <!-- Menus -->
+        <menuitem action="act_franchise" id="menu_sale_franchise"
+            parent="sale.menu_configuration" name="Franchises"/>
+
+        <record model="ir.ui.menu-res.group"
+                id="menu_sale_franchise_group_franchise_admin">
+            <field name="menu" ref="menu_sale_franchise"/>
+            <field name="group" ref="group_franchise_admin"/>
+        </record>
+
+    </data>
+</tryton>
