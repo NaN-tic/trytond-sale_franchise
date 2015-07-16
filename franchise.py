@@ -23,8 +23,7 @@ class Franchise(ModelSQL, ModelView):
             ('party', '=', Eval('company_party')),
             ],
         depends=['company_party'])
-    supervisor = fields.Many2One('company.employee', 'Supervisor',
-        required=True, select=True)
+    supervisor = fields.Many2One('company.employee', 'Supervisor', select=True)
 
     start_date = fields.Date('Start Date')
     end_date = fields.Date('End Date')
