@@ -32,7 +32,11 @@ class FranchiseAddressMixin:
 class Sale(FranchiseAddressMixin):
     __name__ = 'sale.sale'
     _franchise_address_field = 'shipment_address'
-    franchise = fields.Many2One('sale.franchise', 'Franchise')
+    franchise = fields.Many2One('sale.franchise', 'Franchise',
+        states={
+            'readonly': Eval('state') != 'draft',
+            },
+        depends=['state'])
 
     @fields.depends('franchise')
     def on_change_franchise(self):
