@@ -59,7 +59,7 @@ class ShipmentOut(FranchiseAddressMixin):
         pool = Pool()
         SaleLine = pool.get('sale.line')
         for move in self.outgoing_moves:
-            if isinstance(move.origin, SaleLine):
+            if hasattr(move, 'origin') and isinstance(move.origin, SaleLine):
                 sale = move.origin.sale
                 if sale.franchise:
                     return sale.franchise.company_party.id
