@@ -5,7 +5,13 @@ from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
 
-__all__ = ['Franchise', 'Party']
+__all__ = ['Category', 'Franchise', 'Party']
+
+
+class Category(ModelSQL, ModelView):
+    'Franchise Category'
+    __name__ = 'sale.franchise.category'
+    name = fields.Char('Name', required=True, select=True)
 
 
 class Franchise(ModelSQL, ModelView):
@@ -23,6 +29,7 @@ class Franchise(ModelSQL, ModelView):
             ('party', '=', Eval('company_party')),
             ],
         depends=['company_party'])
+    category = fields.Many2One('sale.franchise.category', 'Category')
     supervisor = fields.Many2One('company.employee', 'Supervisor', select=True)
 
     start_date = fields.Date('Start Date')

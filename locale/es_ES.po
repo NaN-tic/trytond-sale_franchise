@@ -10,6 +10,14 @@ msgctxt "field:sale.franchise,address:"
 msgid "Address"
 msgstr "Direcciones"
 
+msgctxt "field:sale.franchise,category:"
+msgid "Category"
+msgstr "Categoría"
+
+msgctxt "field:sale.franchise,code:"
+msgid "code"
+msgstr "Código"
+
 msgctxt "field:sale.franchise,company:"
 msgid "Company"
 msgstr "Empresa"
@@ -50,11 +58,43 @@ msgctxt "field:sale.franchise,state:"
 msgid "State"
 msgstr "Estado"
 
+msgctxt "field:sale.franchise,supervisor:"
+msgid "Supervisor"
+msgstr "Supervisor"
+
 msgctxt "field:sale.franchise,write_date:"
 msgid "Write Date"
 msgstr "Fecha modificación"
 
 msgctxt "field:sale.franchise,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:sale.franchise.category,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:sale.franchise.category,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:sale.franchise.category,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:sale.franchise.category,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:sale.franchise.category,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:sale.franchise.category,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:sale.franchise.category,write_uid:"
 msgid "Write User"
 msgstr "Usuario modificación"
 
@@ -74,6 +114,10 @@ msgctxt "field:stock.shipment.out.return,franchise_party:"
 msgid "Franchise Party"
 msgstr "Tercero de la franquicia"
 
+msgctxt "model:ir.action,name:act_category"
+msgid "Franchise Categories"
+msgstr "Categorías de franquicia"
+
 msgctxt "model:ir.action,name:act_franchise"
 msgid "Franchises"
 msgstr "Franquicias"
@@ -81,6 +125,10 @@ msgstr "Franquicias"
 msgctxt "model:ir.ui.menu,name:menu_sale_franchise"
 msgid "Franchises"
 msgstr "Franquicias"
+
+msgctxt "model:ir.ui.menu,name:menu_sale_franchise_category"
+msgid "Categories"
+msgstr "Categorías"
 
 msgctxt "model:res.group,name:group_franchise_admin"
 msgid "Franchise Administration"
@@ -90,6 +138,10 @@ msgctxt "model:sale.franchise,name:"
 msgid "Sale Franchise"
 msgstr "Franquicia Venda"
 
+msgctxt "model:sale.franchise.category,name:"
+msgid "Franchise Category"
+msgstr "Categorías de franquicia"
+
 msgctxt "selection:sale.franchise,state:"
 msgid "Active"
 msgstr "Alta"
@@ -97,6 +149,10 @@ msgstr "Alta"
 msgctxt "selection:sale.franchise,state:"
 msgid "Inactive"
 msgstr "Baja"
+
+msgctxt "view:sale.franchise.category:"
+msgid "Franchise Categories"
+msgstr "Categorías de franquicia"
 
 msgctxt "view:sale.franchise:"
 msgid "Franchise"

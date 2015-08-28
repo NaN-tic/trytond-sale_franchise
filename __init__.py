@@ -7,6 +7,7 @@ from .sale import *
 
 def register():
     Pool.register(
+        Category,
         Franchise,
         Party,
         Sale,
