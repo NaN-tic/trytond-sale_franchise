@@ -9,8 +9,12 @@
 
     <label name="company"/>
     <field name="company"/>
+    <label name="company_party"/>
+    <field name="company_party"/>
+
+
     <label name="address"/>
-    <field name="address"/>
+    <field name="address" colspan="3"/>
 
 
     <label name="start_date"/>

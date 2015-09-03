@@ -20,10 +20,9 @@ class Franchise(ModelSQL, ModelView):
 
     code = fields.Char('code', required=True, select=True)
     name = fields.Char('Name', required=True, select=True)
-    company = fields.Many2One('company.company', 'Company', required=True)
-    company_party = fields.Function(fields.Many2One('party.party',
-            'Company Party'),
-        'on_change_with_company_party', searcher='search_company_party')
+    company = fields.Many2One('company.company', 'Company')
+    company_party = fields.Many2One('party.party', 'Company Party',
+        'on_change_with_company_party')
     address = fields.Many2One('party.address', 'Address',
         domain=[
             ('party', '=', Eval('company_party')),
