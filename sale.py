@@ -3,7 +3,7 @@
 # copyright notices and license terms.
 from trytond.model import fields
 from trytond.pool import Pool, PoolMeta
-from trytond.pyson import Eval
+from trytond.pyson import Eval, Bool, If
 
 __all__ = ['Sale', 'ShipmentOut', 'ShipmentOutReturn']
 __metaclass__ = PoolMeta
@@ -20,11 +20,11 @@ class FranchiseAddressMixin:
         super(FranchiseAddressMixin, cls).__setup__()
         field = getattr(cls, cls._franchise_address_field)
         if 'franchise_party' not in field.depends:
-            current_domain = field.domain
             field.domain = [
-                'OR',
-                current_domain,
-                [('party', '=', Eval('franchise_party', 0))]
+                If(Bool(Eval('franchise_party')),
+                    [('party', '=', Eval('franchise_party', 0))],
+                    field.domain,
+                    )
                 ]
             field.depends.append('franchise_party')
 
@@ -47,7 +47,7 @@ class Sale(FranchiseAddressMixin):
 
     @fields.depends('franchise')
     def on_change_with_franchise_party(self, name=None):
-        if self.franchise:
+        if self.franchise and self.franchise.company_party:
             return self.franchise.company_party.id
 
 
@@ -61,7 +61,7 @@ class ShipmentOut(FranchiseAddressMixin):
         for move in self.outgoing_moves:
             if hasattr(move, 'origin') and isinstance(move.origin, SaleLine):
                 sale = move.origin.sale
-                if sale.franchise:
+                if sale.franchise and sale.franchise.company_party:
                     return sale.franchise.company_party.id
 
 
@@ -75,5 +75,5 @@ class ShipmentOutReturn(FranchiseAddressMixin):
         for move in self.incoming_moves:
             if isinstance(move.origin, SaleLine):
                 sale = move.origin.sale
-                if sale.franchise:
+                if sale.franchise and sale.franchise.company_party:
                     return sale.franchise.company_party.id
