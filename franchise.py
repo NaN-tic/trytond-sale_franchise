@@ -4,6 +4,8 @@
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
+from trytond import backend
+from trytond.transaction import Transaction
 
 __all__ = ['Category', 'Franchise', 'Party']
 
@@ -21,9 +23,7 @@ class Franchise(ModelSQL, ModelView):
     code = fields.Char('code', required=True, select=True)
     name = fields.Char('Name', required=True, select=True)
     company = fields.Many2One('company.company', 'Company')
-    company_party = fields.Function(fields.Many2One('party.party',
-            'Company Party'),
-        'on_change_with_company_party', searcher='search_company_party')
+    company_party = fields.Many2One('party.party', 'Company Party')
     address = fields.Many2One('party.address', 'Address',
         domain=[
             ('party', '=', Eval('company_party')),
@@ -44,10 +44,21 @@ class Franchise(ModelSQL, ModelView):
         TableHandler = backend.get('TableHandler')
         cursor = Transaction().cursor
         table = TableHandler(cursor, cls, module_name)
+        sql_table = cls.__table__()
+        pool = Pool()
+        Company = pool.get('company.company')
+        company = Company.__table__()
+
+        created_company_party = not table.column_exist('company_party')
 
         super(Franchise, cls).__register__(module_name)
 
         # Migration from 3.4: drop required on company
+        if created_company_party:
+            value = company.select(company.party,
+                    where=company.id == sql_table.company)
+            cursor.execute(*sql_table.update([sql_table.company_party],
+                    [value]))
         table.not_null_action('company', action='remove')
 
     @staticmethod

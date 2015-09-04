@@ -24,7 +24,7 @@ msgstr "Empresa"
 
 msgctxt "field:sale.franchise,company_party:"
 msgid "Company Party"
-msgstr "Tercer de l'empresa"
+msgstr "Tercer"
 
 msgctxt "field:sale.franchise,create_date:"
 msgid "Create Date"
