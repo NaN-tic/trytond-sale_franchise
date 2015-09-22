@@ -3,7 +3,6 @@
      copyright notices and license terms. -->
 <tryton>
     <data>
-
         <record model="res.group" id="group_franchise_admin">
             <field name="name">Franchise Administration</field>
         </record>
@@ -15,16 +14,20 @@
             <field name="user" ref="res.user_trigger"/>
             <field name="group" ref="group_franchise_admin"/>
         </record>
+
+        <!-- sale.franchise -->
         <record model="ir.ui.view" id="franchise_view_form">
             <field name="model">sale.franchise</field>
             <field name="type">form</field>
             <field name="name">franchise_form</field>
         </record>
+
         <record model="ir.ui.view" id="franchise_view_list">
             <field name="model">sale.franchise</field>
             <field name="type">tree</field>
             <field name="name">franchise_list</field>
         </record>
+
         <record model="ir.action.act_window" id="act_franchise">
             <field name="name">Franchises</field>
             <field name="res_model">sale.franchise</field>
@@ -39,6 +42,7 @@
             <field name="view" ref="franchise_view_form"/>
             <field name="act_window" ref="act_franchise"/>
         </record>
+
         <record model="ir.model.access" id="access_sale_franchise">
             <field name="model" search="[('model', '=', 'sale.franchise')]"/>
             <field name="perm_read" eval="True"/>
@@ -54,16 +58,20 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
+
+        <!-- sale.franchise.category -->
         <record model="ir.ui.view" id="category_view_form">
-            <field name="model">sale.category</field>
+            <field name="model">sale.franchise.category</field>
             <field name="type">form</field>
             <field name="name">category_form</field>
         </record>
+
         <record model="ir.ui.view" id="category_view_list">
             <field name="model">sale.franchise.category</field>
             <field name="type">tree</field>
             <field name="name">category_list</field>
         </record>
+
         <record model="ir.action.act_window" id="act_category">
             <field name="name">Franchise Categories</field>
             <field name="res_model">sale.franchise.category</field>
@@ -78,7 +86,8 @@
             <field name="view" ref="category_view_form"/>
             <field name="act_window" ref="act_category"/>
         </record>
-        <record model="ir.model.access" id="access_sale_category">
+
+        <record model="ir.model.access" id="access_sale_franchise_category">
             <field name="model"
                 search="[('model', '=', 'sale.franchise.category')]"/>
             <field name="perm_read" eval="True"/>
@@ -86,7 +95,7 @@
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sale_category_admin">
+        <record model="ir.model.access" id="access_sale_franchise_category_admin">
             <field name="model"
                 search="[('model', '=', 'sale.franchise.category')]"/>
             <field name="group" ref="group_franchise_admin"/>
@@ -95,31 +104,25 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
+
+        <!-- party.party -->
         <record model="ir.ui.view" id="party_view_form">
             <field name="model">party.party</field>
             <field name="type">form</field>
             <field name="inherit" ref="party.party_view_form"/>
             <field name="name">party_form</field>
         </record>
-        <record model="ir.ui.view" id="sale_view_form">
-            <field name="model">sale.sale</field>
-            <field name="type">form</field>
-            <field name="inherit" ref="sale.sale_view_form"/>
-            <field name="name">sale_form</field>
-        </record>
-
 
         <!-- Menus -->
         <menuitem action="act_franchise" id="menu_sale_franchise"
             parent="sale.menu_configuration" name="Franchises"/>
-        <menuitem action="act_category" id="menu_sale_franchise_category"
-            parent="menu_sale_franchise" name="Categories"/>
-
         <record model="ir.ui.menu-res.group"
                 id="menu_sale_franchise_group_franchise_admin">
             <field name="menu" ref="menu_sale_franchise"/>
             <field name="group" ref="group_franchise_admin"/>
         </record>
 
+        <menuitem action="act_category" id="menu_sale_franchise_category"
+            parent="menu_sale_franchise" name="Categories"/>
     </data>
 </tryton>
