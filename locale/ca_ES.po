@@ -154,6 +154,10 @@ msgctxt "view:sale.franchise.category:"
 msgid "Franchise Categories"
 msgstr "Categories de franquícia"
 
+msgctxt "view:sale.franchise.category:"
+msgid "Franchise Category"
+msgstr "Categoria de franquicia"
+
 msgctxt "view:sale.franchise:"
 msgid "Franchise"
 msgstr "Franquicia"
