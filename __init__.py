@@ -11,6 +11,4 @@ def register():
         Franchise,
         Party,
         Sale,
-        ShipmentOut,
-        ShipmentOutReturn,
         module='sale_franchise', type_='model')
