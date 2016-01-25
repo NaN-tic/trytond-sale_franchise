@@ -118,14 +118,6 @@ Create chart of accounts::
     >>> cash_journal.debit_account = cash
     >>> cash_journal.save()
 
-Create parties::
-
-    >>> Party = Model.get('party.party')
-    >>> supplier = Party(name='Supplier')
-    >>> supplier.save()
-    >>> customer = Party(name='Customer')
-    >>> customer.save()
-
 Create category::
 
     >>> ProductCategory = Model.get('product.category')
@@ -175,6 +167,7 @@ Create a Franchise::
     >>> franchise_company.save()
     >>> franchise = Franchise()
     >>> franchise.name = 'Franchise'
+    >>> franchise.code = '0000'
     >>> franchise.company = franchise_company
     >>> franchise.address =  franchise_address
     >>> franchise.save()
@@ -186,7 +179,7 @@ Sale products with franchise::
 
     >>> Sale = Model.get('sale.sale')
     >>> sale = Sale()
-    >>> sale.party = customer
+    >>> sale.party = franchise_party
     >>> sale.payment_term = payment_term
     >>> sale.franchise = franchise
     >>> sale.shipment_address == franchise_address
