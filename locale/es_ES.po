@@ -10,9 +10,9 @@ msgctxt "field:sale.franchise,address:"
 msgid "Address"
 msgstr "Direcciones"
 
-msgctxt "field:sale.franchise,category:"
-msgid "Category"
-msgstr "Categoría"
+msgctxt "field:sale.franchise,categories:"
+msgid "Categories"
+msgstr "Categorías"
 
 msgctxt "field:sale.franchise,code:"
 msgid "code"
@@ -70,6 +70,38 @@ msgctxt "field:sale.franchise,write_uid:"
 msgid "Write User"
 msgstr "Usuario modificación"
 
+msgctxt "field:sale.franchise-sale.franchise.category,category:"
+msgid "Category"
+msgstr "Categoría"
+
+msgctxt "field:sale.franchise-sale.franchise.category,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:sale.franchise-sale.franchise.category,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:sale.franchise-sale.franchise.category,franchise:"
+msgid "Franchise"
+msgstr "Franquicia"
+
+msgctxt "field:sale.franchise-sale.franchise.category,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:sale.franchise-sale.franchise.category,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:sale.franchise-sale.franchise.category,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:sale.franchise-sale.franchise.category,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
 msgctxt "field:sale.franchise.category,create_date:"
 msgid "Create Date"
 msgstr "Fecha de creación"
@@ -77,6 +109,10 @@ msgstr "Fecha de creación"
 msgctxt "field:sale.franchise.category,create_uid:"
 msgid "Create User"
 msgstr "Usuario de creación"
+
+msgctxt "field:sale.franchise.category,franchises:"
+msgid "Franchises"
+msgstr "Franquicias"
 
 msgctxt "field:sale.franchise.category,id:"
 msgid "ID"
@@ -102,18 +138,6 @@ msgctxt "field:sale.sale,franchise:"
 msgid "Franchise"
 msgstr "Franquicia"
 
-msgctxt "field:sale.sale,franchise_party:"
-msgid "Franchise Party"
-msgstr "Tercero de la franquicia"
-
-msgctxt "field:stock.shipment.out,franchise_party:"
-msgid "Franchise Party"
-msgstr "Tercero de la franquicia"
-
-msgctxt "field:stock.shipment.out.return,franchise_party:"
-msgid "Franchise Party"
-msgstr "Tercero de la franquicia"
-
 msgctxt "model:ir.action,name:act_category"
 msgid "Franchise Categories"
 msgstr "Categorías de franquicia"
@@ -137,6 +161,10 @@ msgstr "Administración franquicias"
 msgctxt "model:sale.franchise,name:"
 msgid "Sale Franchise"
 msgstr "Franquicia Venda"
+
+msgctxt "model:sale.franchise-sale.franchise.category,name:"
+msgid "Franchise - Category"
+msgstr "Franquicía - Categoría"
 
 msgctxt "model:sale.franchise.category,name:"
 msgid "Franchise Category"

@@ -4,4 +4,6 @@
 <form string="Franchise Category">
     <label name="name"/>
     <field name="name"/>
+    <separator name="franchises" colspan="4"/>
+    <field name="franchises" colspan="4"/>
 </form>
