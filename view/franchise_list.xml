@@ -9,6 +9,6 @@
     <field name="start_date"/>
     <field name="end_date"/>
     <field name="state"/>
-    <field name="category"/>
     <field name="supervisor"/>
+    <field name="categories" tree_invisible="1"/>
 </tree>
