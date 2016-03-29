@@ -9,6 +9,7 @@ def register():
     Pool.register(
         Category,
         Franchise,
+        FranchiseCategory,
         Party,
         Sale,
         module='sale_franchise', type_='model')

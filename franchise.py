@@ -7,13 +7,15 @@ from trytond.pyson import Eval
 from trytond import backend
 from trytond.transaction import Transaction
 
-__all__ = ['Category', 'Franchise', 'Party']
+__all__ = ['Category', 'Franchise', 'FranchiseCategory', 'Party']
 
 
 class Category(ModelSQL, ModelView):
     'Franchise Category'
     __name__ = 'sale.franchise.category'
     name = fields.Char('Name', required=True, select=True)
+    franchises = fields.Many2Many('sale.franchise-sale.franchise.category',
+        'category', 'franchise', 'Franchises')
 
 
 class Franchise(ModelSQL, ModelView):
@@ -29,7 +31,8 @@ class Franchise(ModelSQL, ModelView):
             ('party', '=', Eval('company_party')),
             ],
         depends=['company_party'])
-    category = fields.Many2One('sale.franchise.category', 'Category')
+    categories = fields.Many2Many('sale.franchise-sale.franchise.category',
+        'franchise', 'category', 'Categories')
     supervisor = fields.Many2One('company.employee', 'Supervisor', select=True)
 
     start_date = fields.Date('Start Date')
@@ -50,6 +53,7 @@ class Franchise(ModelSQL, ModelView):
         company = Company.__table__()
 
         created_company_party = not table.column_exist('company_party')
+        category_exists = table.column_exist('category')
 
         super(Franchise, cls).__register__(module_name)
 
@@ -60,6 +64,9 @@ class Franchise(ModelSQL, ModelView):
             cursor.execute(*sql_table.update([sql_table.company_party],
                     [value]))
         table.not_null_action('company', action='remove')
+        # Migration from 3.4.0: drop category field (replaced by categories)
+        if category_exists:
+            table.drop_column('category')
 
     @staticmethod
     def default_start_date():
@@ -79,6 +86,15 @@ class Franchise(ModelSQL, ModelView):
     @classmethod
     def search_company_party(cls, name, clause):
         return [('company.party',) + tuple(clause[1:])]
+
+
+class FranchiseCategory(ModelSQL):
+    'Franchise - Category'
+    __name__ = 'sale.franchise-sale.franchise.category'
+    franchise = fields.Many2One('sale.franchise', 'Franchise',
+        ondelete='CASCADE', required=True, select=True)
+    category = fields.Many2One('sale.franchise.category', 'Category',
+        ondelete='CASCADE', required=True, select=True)
 
 
 class Party:

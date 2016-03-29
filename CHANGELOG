@@ -1,1 +1,5 @@
+* Replaced category Many2One field by categories Many2Many in franchise
+
+Version 3.4.0 - 2016-02-06
+
 * Initial release
