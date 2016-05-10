@@ -68,6 +68,17 @@ class Franchise(ModelSQL, ModelView):
         if category_exists:
             table.drop_column('category')
 
+    def get_rec_name(self, name):
+        return '[%s] %s' % (self.code, self.name)
+
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        return [
+            ['OR',
+                ('code',) + tuple(clause[1:]),
+                ('name',) + tuple(clause[1:]),
+                ]]
+
     @staticmethod
     def default_start_date():
         pool = Pool()
