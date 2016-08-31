@@ -19,7 +19,5 @@ class Sale:
 
     @fields.depends('franchise')
     def on_change_franchise(self):
-        changes = {}
         if self.franchise and self.franchise.address:
-            changes['shipment_address'] = self.franchise.address.id
-        return changes
+            self.shipment_address = self.franchise.address
