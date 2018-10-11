@@ -6,11 +6,12 @@ from trytond.pool import PoolMeta
 from trytond.pyson import Eval
 
 __all__ = ['Sale']
-__metaclass__ = PoolMeta
 
 
 class Sale:
     __name__ = 'sale.sale'
+    __metaclass__ = PoolMeta
+
     franchise = fields.Many2One('sale.franchise', 'Franchise',
         states={
             'readonly': Eval('state') != 'draft',
