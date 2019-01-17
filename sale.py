@@ -8,9 +8,8 @@ from trytond.pyson import Eval
 __all__ = ['Sale']
 
 
-class Sale:
+class Sale(metaclass=PoolMeta):
     __name__ = 'sale.sale'
-    __metaclass__ = PoolMeta
 
     franchise = fields.Many2One('sale.franchise', 'Franchise',
         states={

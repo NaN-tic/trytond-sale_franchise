@@ -52,12 +52,30 @@ Create chart of accounts::
     >>> account_tax = accounts['tax']
     >>> account_cash = accounts['cash']
 
+Create tax::
+
+    >>> tax = create_tax(Decimal('.10'))
+    >>> tax.save()
+
 Create journals::
 
     >>> Journal = Model.get('account.journal')
     >>> cash_journal, = Journal.find([('type', '=', 'cash')])
     >>> cash_journal.credit_account = account_cash
     >>> cash_journal.debit_account = account_cash
+
+Create account categories::
+
+    >>> ProductCategory = Model.get('product.category')
+    >>> account_category = ProductCategory(name="Account Category")
+    >>> account_category.accounting = True
+    >>> account_category.account_expense = expense
+    >>> account_category.account_revenue = revenue
+    >>> account_category.save()
+
+    >>> account_category_tax, = account_category.duplicate()
+    >>> account_category_tax.customer_taxes.append(tax)
+    >>> account_category_tax.save()
 
 Create product::
 
@@ -73,12 +91,11 @@ Create product::
     >>> template.purchasable = True
     >>> template.salable = True
     >>> template.list_price = Decimal('10')
-    >>> template.cost_price = Decimal('5')
     >>> template.cost_price_method = 'fixed'
-    >>> template.account_expense = expense
-    >>> template.account_revenue = revenue
+    >>> template.account_category = account_category_tax
     >>> template.save()
     >>> product.template = template
+    >>> product.cost_price = Decimal('5')
     >>> product.save()
 
 Create payment term::
@@ -103,7 +120,7 @@ Create a Franchise::
     >>> franchise.address =  franchise_address
     >>> franchise.save()
     >>> franchise.state
-    u'active'
+    'active'
 
 Sale products with franchise::
 

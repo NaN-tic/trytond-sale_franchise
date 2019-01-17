@@ -108,9 +108,8 @@ class FranchiseCategory(ModelSQL):
         ondelete='CASCADE', required=True, select=True)
 
 
-class Party:
+class Party(metaclass=PoolMeta):
     __name__ = 'party.party'
-    __metaclass__ = PoolMeta
 
     franchises = fields.One2Many('sale.franchise', 'company_party',
         'Franchises', readonly=True)
