@@ -8,7 +8,7 @@ msgstr "Franquícies"
 
 msgctxt "field:sale.franchise,address:"
 msgid "Address"
-msgstr "Adreces"
+msgstr "Adreça"
 
 msgctxt "field:sale.franchise,categories:"
 msgid "Categories"
@@ -40,15 +40,15 @@ msgstr "Data baixa"
 
 msgctxt "field:sale.franchise,id:"
 msgid "ID"
-msgstr "Identificador"
+msgstr "ID"
 
 msgctxt "field:sale.franchise,name:"
 msgid "Name"
 msgstr "Nom"
 
 msgctxt "field:sale.franchise,rec_name:"
-msgid "Name"
-msgstr "Nom"
+msgid "Record Name"
+msgstr "Nom del registre"
 
 msgctxt "field:sale.franchise,start_date:"
 msgid "Start Date"
@@ -64,11 +64,11 @@ msgstr "Supervisor"
 
 msgctxt "field:sale.franchise,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:sale.franchise,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:sale.franchise-sale.franchise.category,category:"
 msgid "Category"
@@ -76,11 +76,11 @@ msgstr "Categoria"
 
 msgctxt "field:sale.franchise-sale.franchise.category,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:sale.franchise-sale.franchise.category,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:sale.franchise-sale.franchise.category,franchise:"
 msgid "Franchise"
@@ -88,19 +88,19 @@ msgstr "Franquícia"
 
 msgctxt "field:sale.franchise-sale.franchise.category,id:"
 msgid "ID"
-msgstr "Identificador"
+msgstr "ID"
 
 msgctxt "field:sale.franchise-sale.franchise.category,rec_name:"
-msgid "Name"
-msgstr "Nom"
+msgid "Record Name"
+msgstr "Nom del registre"
 
 msgctxt "field:sale.franchise-sale.franchise.category,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:sale.franchise-sale.franchise.category,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:sale.franchise.category,create_date:"
 msgid "Create Date"
@@ -116,23 +116,23 @@ msgstr "Franquícies"
 
 msgctxt "field:sale.franchise.category,id:"
 msgid "ID"
-msgstr "Identificador"
+msgstr "ID"
 
 msgctxt "field:sale.franchise.category,name:"
 msgid "Name"
 msgstr "Nom"
 
 msgctxt "field:sale.franchise.category,rec_name:"
-msgid "Name"
-msgstr "Nom"
+msgid "Record Name"
+msgstr "Nom del registre"
 
 msgctxt "field:sale.franchise.category,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:sale.franchise.category,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:sale.sale,franchise:"
 msgid "Franchise"
