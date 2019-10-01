@@ -57,12 +57,18 @@ Create tax::
     >>> tax = create_tax(Decimal('.10'))
     >>> tax.save()
 
-Create journals::
+Create payment method::
 
     >>> Journal = Model.get('account.journal')
-    >>> cash_journal, = Journal.find([('type', '=', 'cash')])
-    >>> cash_journal.credit_account = account_cash
-    >>> cash_journal.debit_account = account_cash
+    >>> PaymentMethod = Model.get('account.invoice.payment.method')
+    >>> Sequence = Model.get('ir.sequence')
+    >>> journal_cash, = Journal.find([('type', '=', 'cash')])
+    >>> payment_method = PaymentMethod()
+    >>> payment_method.name = 'Cash'
+    >>> payment_method.journal = journal_cash
+    >>> payment_method.credit_account = account_cash
+    >>> payment_method.debit_account = account_cash
+    >>> payment_method.save()
 
 Create account categories::
 
@@ -88,7 +94,6 @@ Create product::
     >>> template.name = 'product'
     >>> template.default_uom = unit
     >>> template.type = 'goods'
-    >>> template.purchasable = True
     >>> template.salable = True
     >>> template.list_price = Decimal('10')
     >>> template.cost_price_method = 'fixed'
